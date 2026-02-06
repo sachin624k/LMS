@@ -1,7 +1,8 @@
 import Edulogo from './edulogo.png'
+import user_icon from './user_icon.png'
 
 export const assets = {
-    Edulogo,
+    Edulogo, user_icon
 }
 
 export const dummyEducatorData = {

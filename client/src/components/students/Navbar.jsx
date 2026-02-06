@@ -16,7 +16,21 @@ const Navbar = () => {
         </div>
         <button className='bg-blue-600 text-white px-5 py-2 rounded-full'>Create Account</button>
       </div>
-      <div></div>
+      {/* For Phone Screen */}
+      <div className='md:hidden flex items-center gap-4 sm:gap-5 text-gray-500'>
+        <div>
+          <button>Become Educator</button>
+          | <Link to='/my-enrollments'>My Enrollments</Link>
+        </div>
+        <button className="flex items-center justify-center">
+          <img
+            src={assets.user_icon}
+            alt="User"
+            className="w-6 h-7 sm:w-6 sm:h-7 object-contain"
+          />
+        </button>
+
+      </div>
     </div>
   )
 }
