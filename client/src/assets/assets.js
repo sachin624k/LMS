@@ -1,8 +1,15 @@
 import Edulogo from './edulogo.png'
 import user_icon from './user_icon.png'
+import sketch from './sketch.png'
+import search_icon from './search_icon.png'
+import microsoft_logo from './microsoft_logo.png'
+import walmart_logo from './walmart_logo.png'
+import accenture_logo from './accenture_logo.png'
+import adobe_logo from './adobe_logo.png'
+import paypal_logo from './paypal_logo.png'
 
 export const assets = {
-    Edulogo, user_icon
+    Edulogo, user_icon, sketch, search_icon, microsoft_logo, walmart_logo, accenture_logo, adobe_logo, paypal_logo
 }
 
 export const dummyEducatorData = {
