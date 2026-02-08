@@ -244,5 +244,213 @@ export const dummyCourses = [
 
     courseContent: [],
   },
+
+    {
+    _id: "5",
+    courseTitle: "HTML & CSS Fundamentals",
+    courseDescription: "Build beautiful and responsive websites from scratch.",
+    coursePrice: 39.99,
+    discount: 25,
+    isPublished: true,
+
+    educator: {
+      _id: "edu5",
+      name: "Neha Patel",
+    },
+
+    enrolledStudents: [],
+    courseRatings: [{ rating: 4 }, { rating: 5 }],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/mU6anWqZJcc/maxresdefault.jpg",
+
+    createdAt: "2024-12-21T10:00:00.000Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 0,
+
+    courseContent: [],
+  },
+
+  {
+    _id: "6",
+    courseTitle: "Advanced JavaScript Concepts",
+    courseDescription: "Deep dive into closures, promises, async/await and more.",
+    coursePrice: 79.99,
+    discount: 20,
+    isPublished: true,
+
+    educator: {
+      _id: "edu6",
+      name: "Karan Mehta",
+    },
+
+    enrolledStudents: [],
+    courseRatings: [{ rating: 5 }, { rating: 5 }, { rating: 4 }],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/Bv_5Zv5c-Ts/maxresdefault.jpg",
+
+    createdAt: "2024-12-22T10:00:00.000Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 0,
+
+    courseContent: [],
+  },
+
+  {
+    _id: "7",
+    courseTitle: "MongoDB Complete Guide",
+    courseDescription: "Learn MongoDB from basics to advanced aggregation.",
+    coursePrice: 54.99,
+    discount: 15,
+    isPublished: true,
+
+    educator: {
+      _id: "edu7",
+      name: "Ankit Yadav",
+    },
+
+    enrolledStudents: [],
+    courseRatings: [{ rating: 4 }],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/pWbMrx5rVBE/maxresdefault.jpg",
+
+    createdAt: "2024-12-23T10:00:00.000Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 0,
+
+    courseContent: [],
+  },
+
+  {
+    _id: "8",
+    courseTitle: "Git & GitHub for Developers",
+    courseDescription: "Master version control and collaboration using Git.",
+    coursePrice: 29.99,
+    discount: 40,
+    isPublished: true,
+
+    educator: {
+      _id: "edu8",
+      name: "Pooja Nair",
+    },
+
+    enrolledStudents: [],
+    courseRatings: [{ rating: 5 }],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/RGOj5yH7evk/maxresdefault.jpg",
+
+    createdAt: "2024-12-24T10:00:00.000Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 0,
+
+    courseContent: [],
+  },
+
+  {
+    _id: "9",
+    courseTitle: "REST API Development",
+    courseDescription: "Design and build scalable REST APIs using Node.js.",
+    coursePrice: 64.99,
+    discount: 20,
+    isPublished: true,
+
+    educator: {
+      _id: "edu9",
+      name: "Vikas Malhotra",
+    },
+
+    enrolledStudents: [],
+    courseRatings: [{ rating: 4 }, { rating: 4 }],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/Q-BpqyOT3a8/maxresdefault.jpg",
+
+    createdAt: "2024-12-25T10:00:00.000Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 0,
+
+    courseContent: [],
+  },
+
+  {
+    _id: "10",
+    courseTitle: "DSA with JavaScript",
+    courseDescription: "Learn Data Structures & Algorithms using JavaScript.",
+    coursePrice: 89.99,
+    discount: 35,
+    isPublished: true,
+
+    educator: {
+      _id: "edu10",
+      name: "Rahul Khanna",
+    },
+
+    enrolledStudents: [],
+    courseRatings: [{ rating: 5 }, { rating: 5 }],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/8hly31xKli0/maxresdefault.jpg",
+
+    createdAt: "2024-12-26T10:00:00.000Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 0,
+
+    courseContent: [],
+  },
+
+    {
+    _id: "11",
+    courseTitle: "TypeScript for React Developers",
+    courseDescription: "Write safer and scalable React apps using TypeScript.",
+    coursePrice: 74.99,
+    discount: 25,
+    isPublished: true,
+
+    educator: {
+      _id: "edu11",
+      name: "Sandeep Joshi",
+    },
+
+    enrolledStudents: [],
+    courseRatings: [{ rating: 5 }, { rating: 4 }],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/BwuLxPH8IDs/maxresdefault.jpg",
+
+    createdAt: "2024-12-27T10:00:00.000Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 0,
+
+    courseContent: [],
+  },
+
+  {
+    _id: "12",
+    courseTitle: "Next.js Crash Course",
+    courseDescription: "Build production-ready full stack apps with Next.js.",
+    coursePrice: 84.99,
+    discount: 30,
+    isPublished: true,
+
+    educator: {
+      _id: "edu12",
+      name: "Arjun Rao",
+    },
+
+    enrolledStudents: [],
+    courseRatings: [{ rating: 5 }, { rating: 5 }],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/1WmNXEVia8I/maxresdefault.jpg",
+
+    createdAt: "2024-12-28T10:00:00.000Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 0,
+
+    courseContent: [],
+  },
 ];
 
