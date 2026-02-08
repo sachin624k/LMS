@@ -14,7 +14,7 @@ import profile_img_3 from './profile_img_3.png'
 import logo_dark from './logo_dark.png'
 
 export const assets = {
-    Edulogo, user_icon, sketch, search_icon, microsoft_logo, walmart_logo, accenture_logo, adobe_logo, paypal_logo, star, profile_img_1, profile_img_2, profile_img_3, logo_dark
+  Edulogo, user_icon, sketch, search_icon, microsoft_logo, walmart_logo, accenture_logo, adobe_logo, paypal_logo, star, profile_img_1, profile_img_2, profile_img_3, logo_dark
 }
 
 export const dummyEducatorData = {
@@ -124,47 +124,54 @@ export const dummyStudentEnrolled = [
 export const dummyCourses = [
   {
     _id: "605c72efb3f1c2b1f8e4e1a1",
-
     courseTitle: "Introduction to JavaScript",
     courseDescription: `
-      <h2>Learn the Basics of JavaScript</h2>
-      <p>
-        JavaScript is a versatile programming language that powers the web.
-        In this course, you will learn the fundamentals of JavaScript.
-      </p>
-      <ul>
-        <li>Understand the basics of programming</li>
-        <li>Learn DOM manipulation</li>
-        <li>Create dynamic web applications</li>
-      </ul>
-    `,
+  <h2>Learn the Basics of JavaScript</h2>
+
+  <p>
+    JavaScript is a powerful and widely used programming language that helps
+    create interactive and dynamic web applications. It plays a key role in
+    modern web development and enhances the overall user experience on websites
+    and web apps.
+  </p>
+
+  <p>
+    This course is designed for beginners who want to build a strong foundation
+    in JavaScript and prepare themselves for advanced frameworks and libraries.
+  </p>
+
+  <ul>
+    <li>Understand core JavaScript concepts and syntax</li>
+    <li>Learn variables, data types, and operators</li>
+    <li>Work with conditions, loops, and basic logic</li>
+    <li>Write clean, simple, and effective JavaScript code</li>
+  </ul>
+`,
+
     coursePrice: 49.99,
     discount: 20,
     isPublished: true,
-
-    educator: {
-      _id: "675ac1512100b91a6d9b8b99",
-      name: "Sachin Kushwaha",
-    },
-
-    enrolledStudents: [
-      "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
-      "user_9xKpLrT82AbCqL3P0MNsX7",
+    educator: { _id: "edu1", name: "Sachin Kushwaha" },
+    enrolledStudents: ["u1", "u2"],
+    courseRatings: [{ rating: 5 }, { rating: 5 }],
+    courseThumbnail: "https://img.youtube.com/vi/CBWnBi-awSA/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "JavaScript Basics",
+        chapterContent: [
+          { lectureTitle: "What is JavaScript?", lectureDuration: 10, isPreviewFree: true },
+          { lectureTitle: "Variables & Data Types", lectureDuration: 15 },
+          { lectureTitle: "Operators", lectureDuration: 12 },
+        ],
+      },
+      {
+        chapterTitle: "Control Flow",
+        chapterContent: [
+          { lectureTitle: "Conditions", lectureDuration: 14 },
+          { lectureTitle: "Loops", lectureDuration: 16 },
+        ],
+      },
     ],
-
-    courseRatings: [
-      { userId: "u1", rating: 5 },
-      { userId: "u2", rating: 5 },
-    ],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/CBWnBi-awSA/maxresdefault.jpg",
-
-    createdAt: "2024-12-17T08:16:53.622Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 4,
-
-    courseContent: [],
   },
 
   {
@@ -174,49 +181,55 @@ export const dummyCourses = [
     coursePrice: 59.99,
     discount: 15,
     isPublished: true,
-
-    educator: {
-      _id: "edu2",
-      name: "Amit Sharma",
-    },
-
+    educator: { _id: "edu2", name: "Amit Sharma" },
     enrolledStudents: [],
     courseRatings: [{ rating: 4 }],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/bMknfKXIFA8/maxresdefault.jpg",
-
-    createdAt: "2024-12-18T10:00:00.000Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 0,
-
-    courseContent: [],
+    courseThumbnail: "https://img.youtube.com/vi/bMknfKXIFA8/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "React Fundamentals",
+        chapterContent: [
+          { lectureTitle: "What is React?", lectureDuration: 12 },
+          { lectureTitle: "JSX Explained", lectureDuration: 14 },
+        ],
+      },
+      {
+        chapterTitle: "Core Concepts",
+        chapterContent: [
+          { lectureTitle: "Props", lectureDuration: 15 },
+          { lectureTitle: "State", lectureDuration: 18 },
+        ],
+      },
+    ],
   },
 
   {
     _id: "3",
     courseTitle: "Full Stack MERN Bootcamp",
-    courseDescription: "Become a full stack MERN developer.",
+    courseDescription: "Become a MERN stack developer.",
     coursePrice: 99.99,
     discount: 30,
     isPublished: true,
-
-    educator: {
-      _id: "edu3",
-      name: "Priya Verma",
-    },
-
+    educator: { _id: "edu3", name: "Priya Verma" },
     enrolledStudents: [],
     courseRatings: [{ rating: 5 }, { rating: 5 }],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/7CqJlxBYj-M/maxresdefault.jpg",
-
-    createdAt: "2024-12-19T10:00:00.000Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 0,
-
-    courseContent: [],
+    courseThumbnail: "https://img.youtube.com/vi/7CqJlxBYj-M/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "Frontend with React",
+        chapterContent: [
+          { lectureTitle: "React Overview", lectureDuration: 20 },
+          { lectureTitle: "Hooks", lectureDuration: 25 },
+        ],
+      },
+      {
+        chapterTitle: "Backend with Node",
+        chapterContent: [
+          { lectureTitle: "Node Basics", lectureDuration: 18 },
+          { lectureTitle: "Express APIs", lectureDuration: 22 },
+        ],
+      },
+    ],
   },
 
   {
@@ -226,231 +239,257 @@ export const dummyCourses = [
     coursePrice: 69.99,
     discount: 10,
     isPublished: true,
-
-    educator: {
-      _id: "edu4",
-      name: "Rohit Singh",
-    },
-
+    educator: { _id: "edu4", name: "Rohit Singh" },
     enrolledStudents: [],
     courseRatings: [{ rating: 3 }],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/Oe421EPjeBE/maxresdefault.jpg",
-
-    createdAt: "2024-12-20T10:00:00.000Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 0,
-
-    courseContent: [],
+    courseThumbnail: "https://img.youtube.com/vi/Oe421EPjeBE/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "Node Fundamentals",
+        chapterContent: [
+          { lectureTitle: "Node Architecture", lectureDuration: 15 },
+          { lectureTitle: "NPM & Modules", lectureDuration: 12 },
+        ],
+      },
+      {
+        chapterTitle: "Express Framework",
+        chapterContent: [
+          { lectureTitle: "Routing", lectureDuration: 18 },
+          { lectureTitle: "Middleware", lectureDuration: 20 },
+        ],
+      },
+    ],
   },
 
-    {
+  {
     _id: "5",
     courseTitle: "HTML & CSS Fundamentals",
-    courseDescription: "Build beautiful and responsive websites from scratch.",
+    courseDescription: "Build responsive websites.",
     coursePrice: 39.99,
     discount: 25,
     isPublished: true,
-
-    educator: {
-      _id: "edu5",
-      name: "Neha Patel",
-    },
-
+    educator: { _id: "edu5", name: "Neha Patel" },
     enrolledStudents: [],
     courseRatings: [{ rating: 4 }, { rating: 5 }],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/mU6anWqZJcc/maxresdefault.jpg",
-
-    createdAt: "2024-12-21T10:00:00.000Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 0,
-
-    courseContent: [],
+    courseThumbnail: "https://img.youtube.com/vi/mU6anWqZJcc/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "HTML Basics",
+        chapterContent: [
+          { lectureTitle: "HTML Structure", lectureDuration: 10 },
+          { lectureTitle: "Forms & Inputs", lectureDuration: 14 },
+        ],
+      },
+      {
+        chapterTitle: "CSS Basics",
+        chapterContent: [
+          { lectureTitle: "Flexbox", lectureDuration: 16 },
+          { lectureTitle: "Responsive Design", lectureDuration: 18 },
+        ],
+      },
+    ],
   },
 
   {
     _id: "6",
     courseTitle: "Advanced JavaScript Concepts",
-    courseDescription: "Deep dive into closures, promises, async/await and more.",
+    courseDescription: "Closures, promises, async/await.",
     coursePrice: 79.99,
     discount: 20,
     isPublished: true,
-
-    educator: {
-      _id: "edu6",
-      name: "Karan Mehta",
-    },
-
+    educator: { _id: "edu6", name: "Karan Mehta" },
     enrolledStudents: [],
     courseRatings: [{ rating: 5 }, { rating: 5 }, { rating: 4 }],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/Bv_5Zv5c-Ts/maxresdefault.jpg",
-
-    createdAt: "2024-12-22T10:00:00.000Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 0,
-
-    courseContent: [],
+    courseThumbnail: "https://img.youtube.com/vi/Bv_5Zv5c-Ts/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "Core Concepts",
+        chapterContent: [
+          { lectureTitle: "Closures", lectureDuration: 20 },
+          { lectureTitle: "Hoisting", lectureDuration: 15 },
+        ],
+      },
+      {
+        chapterTitle: "Async JavaScript",
+        chapterContent: [
+          { lectureTitle: "Promises", lectureDuration: 18 },
+          { lectureTitle: "Async/Await", lectureDuration: 22 },
+        ],
+      },
+    ],
   },
 
   {
     _id: "7",
     courseTitle: "MongoDB Complete Guide",
-    courseDescription: "Learn MongoDB from basics to advanced aggregation.",
+    courseDescription: "MongoDB from basics to aggregation.",
     coursePrice: 54.99,
     discount: 15,
     isPublished: true,
-
-    educator: {
-      _id: "edu7",
-      name: "Ankit Yadav",
-    },
-
+    educator: { _id: "edu7", name: "Ankit Yadav" },
     enrolledStudents: [],
     courseRatings: [{ rating: 4 }],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/pWbMrx5rVBE/maxresdefault.jpg",
-
-    createdAt: "2024-12-23T10:00:00.000Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 0,
-
-    courseContent: [],
+    courseThumbnail: "https://img.youtube.com/vi/pWbMrx5rVBE/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "Mongo Basics",
+        chapterContent: [
+          { lectureTitle: "Documents & Collections", lectureDuration: 14 },
+          { lectureTitle: "CRUD Operations", lectureDuration: 18 },
+        ],
+      },
+      {
+        chapterTitle: "Advanced Mongo",
+        chapterContent: [
+          { lectureTitle: "Indexes", lectureDuration: 16 },
+          { lectureTitle: "Aggregation", lectureDuration: 20 },
+        ],
+      },
+    ],
   },
 
   {
     _id: "8",
     courseTitle: "Git & GitHub for Developers",
-    courseDescription: "Master version control and collaboration using Git.",
+    courseDescription: "Master version control.",
     coursePrice: 29.99,
     discount: 40,
     isPublished: true,
-
-    educator: {
-      _id: "edu8",
-      name: "Pooja Nair",
-    },
-
+    educator: { _id: "edu8", name: "Pooja Nair" },
     enrolledStudents: [],
     courseRatings: [{ rating: 5 }],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/RGOj5yH7evk/maxresdefault.jpg",
-
-    createdAt: "2024-12-24T10:00:00.000Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 0,
-
-    courseContent: [],
+    courseThumbnail: "https://img.youtube.com/vi/RGOj5yH7evk/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "Git Basics",
+        chapterContent: [
+          { lectureTitle: "Git Init & Commit", lectureDuration: 10 },
+          { lectureTitle: "Branches", lectureDuration: 12 },
+        ],
+      },
+      {
+        chapterTitle: "GitHub",
+        chapterContent: [
+          { lectureTitle: "Pull Requests", lectureDuration: 14 },
+          { lectureTitle: "Collaboration", lectureDuration: 16 },
+        ],
+      },
+    ],
   },
 
   {
     _id: "9",
     courseTitle: "REST API Development",
-    courseDescription: "Design and build scalable REST APIs using Node.js.",
+    courseDescription: "Build scalable APIs.",
     coursePrice: 64.99,
     discount: 20,
     isPublished: true,
-
-    educator: {
-      _id: "edu9",
-      name: "Vikas Malhotra",
-    },
-
+    educator: { _id: "edu9", name: "Vikas Malhotra" },
     enrolledStudents: [],
     courseRatings: [{ rating: 4 }, { rating: 4 }],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/Q-BpqyOT3a8/maxresdefault.jpg",
-
-    createdAt: "2024-12-25T10:00:00.000Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 0,
-
-    courseContent: [],
+    courseThumbnail: "https://img.youtube.com/vi/Q-BpqyOT3a8/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "API Basics",
+        chapterContent: [
+          { lectureTitle: "REST Principles", lectureDuration: 15 },
+          { lectureTitle: "HTTP Methods", lectureDuration: 14 },
+        ],
+      },
+      {
+        chapterTitle: "Implementation",
+        chapterContent: [
+          { lectureTitle: "Express APIs", lectureDuration: 18 },
+          { lectureTitle: "JWT Auth", lectureDuration: 20 },
+        ],
+      },
+    ],
   },
 
   {
     _id: "10",
     courseTitle: "DSA with JavaScript",
-    courseDescription: "Learn Data Structures & Algorithms using JavaScript.",
+    courseDescription: "Data Structures & Algorithms.",
     coursePrice: 89.99,
     discount: 35,
     isPublished: true,
-
-    educator: {
-      _id: "edu10",
-      name: "Rahul Khanna",
-    },
-
+    educator: { _id: "edu10", name: "Rahul Khanna" },
     enrolledStudents: [],
     courseRatings: [{ rating: 5 }, { rating: 5 }],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/8hly31xKli0/maxresdefault.jpg",
-
-    createdAt: "2024-12-26T10:00:00.000Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 0,
-
-    courseContent: [],
+    courseThumbnail: "https://img.youtube.com/vi/8hly31xKli0/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "Data Structures",
+        chapterContent: [
+          { lectureTitle: "Arrays", lectureDuration: 18 },
+          { lectureTitle: "Linked Lists", lectureDuration: 20 },
+        ],
+      },
+      {
+        chapterTitle: "Algorithms",
+        chapterContent: [
+          { lectureTitle: "Sorting", lectureDuration: 22 },
+          { lectureTitle: "Searching", lectureDuration: 16 },
+        ],
+      },
+    ],
   },
 
-    {
+  {
     _id: "11",
     courseTitle: "TypeScript for React Developers",
-    courseDescription: "Write safer and scalable React apps using TypeScript.",
+    courseDescription: "Type-safe React apps.",
     coursePrice: 74.99,
     discount: 25,
     isPublished: true,
-
-    educator: {
-      _id: "edu11",
-      name: "Sandeep Joshi",
-    },
-
+    educator: { _id: "edu11", name: "Sandeep Joshi" },
     enrolledStudents: [],
     courseRatings: [{ rating: 5 }, { rating: 4 }],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/BwuLxPH8IDs/maxresdefault.jpg",
-
-    createdAt: "2024-12-27T10:00:00.000Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 0,
-
-    courseContent: [],
+    courseThumbnail: "https://img.youtube.com/vi/BwuLxPH8IDs/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "TypeScript Basics",
+        chapterContent: [
+          { lectureTitle: "Types", lectureDuration: 15 },
+          { lectureTitle: "Interfaces", lectureDuration: 18 },
+        ],
+      },
+      {
+        chapterTitle: "React + TS",
+        chapterContent: [
+          { lectureTitle: "Props Typing", lectureDuration: 16 },
+          { lectureTitle: "Hooks Typing", lectureDuration: 20 },
+        ],
+      },
+    ],
   },
 
   {
     _id: "12",
     courseTitle: "Next.js Crash Course",
-    courseDescription: "Build production-ready full stack apps with Next.js.",
+    courseDescription: "Production-ready Next.js apps.",
     coursePrice: 84.99,
     discount: 30,
     isPublished: true,
-
-    educator: {
-      _id: "edu12",
-      name: "Arjun Rao",
-    },
-
+    educator: { _id: "edu12", name: "Arjun Rao" },
     enrolledStudents: [],
     courseRatings: [{ rating: 5 }, { rating: 5 }],
-
-    courseThumbnail:
-      "https://img.youtube.com/vi/1WmNXEVia8I/maxresdefault.jpg",
-
-    createdAt: "2024-12-28T10:00:00.000Z",
-    updatedAt: "2025-01-02T04:47:44.701Z",
-    __v: 0,
-
-    courseContent: [],
+    courseThumbnail: "https://img.youtube.com/vi/1WmNXEVia8I/maxresdefault.jpg",
+    courseContent: [
+      {
+        chapterTitle: "Next.js Basics",
+        chapterContent: [
+          { lectureTitle: "Pages & Routing", lectureDuration: 16 },
+          { lectureTitle: "Layouts", lectureDuration: 14 },
+        ],
+      },
+      {
+        chapterTitle: "Advanced",
+        chapterContent: [
+          { lectureTitle: "SSR & SSG", lectureDuration: 20 },
+          { lectureTitle: "Deployment", lectureDuration: 18 },
+        ],
+      },
+    ],
   },
 ];
-

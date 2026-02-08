@@ -49,7 +49,7 @@ const TestimonialsSection = () => {
                 {testimonial.feedback}
               </p>
             </div>
-            <a href='#' className='text-blue-500 hover:underline px-5'>Read more</a>
+            <a href='https://www.linkedin.com/in/sachin624k/' className='text-blue-500 hover:underline px-5'>Read more</a>
           </div>
         ))}
       </div>

@@ -14,7 +14,11 @@ export default {
         default: ['15px', '21px'],
       },
       gridTemplateColumns: {
-        'auto' : 'repeat(auto-fit, minmax(200px, 1fr))'
+        'auto': 'repeat(auto-fit, minmax(200px, 1fr))'
+      },
+      spacing: {
+        'section-height': '500px',
+        30: '7.5rem',
       }
     },
   },
