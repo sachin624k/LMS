@@ -7,9 +7,14 @@ import walmart_logo from './walmart_logo.png'
 import accenture_logo from './accenture_logo.png'
 import adobe_logo from './adobe_logo.png'
 import paypal_logo from './paypal_logo.png'
+import star from './star.png'
+import profile_img_1 from './profile_img_1.png'
+import profile_img_2 from './profile_img_2.png'
+import profile_img_3 from './profile_img_3.png'
+import logo_dark from './logo_dark.png'
 
 export const assets = {
-    Edulogo, user_icon, sketch, search_icon, microsoft_logo, walmart_logo, accenture_logo, adobe_logo, paypal_logo
+    Edulogo, user_icon, sketch, search_icon, microsoft_logo, walmart_logo, accenture_logo, adobe_logo, paypal_logo, star, profile_img_1, profile_img_2, profile_img_3, logo_dark
 }
 
 export const dummyEducatorData = {
@@ -37,7 +42,7 @@ export const dummyTestimonialData = [
     image: assets.profile_img_2,
     rating: 4,
     feedback:
-      "The UI and overall flow are excellent. It made learning React and building projects much easier and more enjoyable.",
+      "The UI and overall flow were very well designed and intuitive. Learning React through hands-on projects felt smooth, practical, and enjoyable.",
   },
   {
     name: "Priya Verma",
@@ -45,7 +50,7 @@ export const dummyTestimonialData = [
     image: assets.profile_img_3,
     rating: 5,
     feedback:
-      "I loved the project-based approach. It gave me confidence to build real applications and prepare for interviews.",
+      "I loved the project-based approach with real-world applications. The learning experience was smooth, practical, and very confidence-building.",
   },
 ];
 
@@ -119,75 +124,125 @@ export const dummyStudentEnrolled = [
 export const dummyCourses = [
   {
     _id: "605c72efb3f1c2b1f8e4e1a1",
+
     courseTitle: "Introduction to JavaScript",
     courseDescription: `
       <h2>Learn the Basics of JavaScript</h2>
       <p>
         JavaScript is a versatile programming language that powers the web.
-        In this course, you will learn the fundamentals of JavaScript, including
-        syntax, data types, and control structures.
-      </p>
-      <p>
-        This course is perfect for beginners who want to start their journey
-        in web development.
+        In this course, you will learn the fundamentals of JavaScript.
       </p>
       <ul>
         <li>Understand the basics of programming</li>
-        <li>Learn how to manipulate the DOM</li>
+        <li>Learn DOM manipulation</li>
         <li>Create dynamic web applications</li>
       </ul>
     `,
     coursePrice: 49.99,
-    isPublished: true,
     discount: 20,
+    isPublished: true,
 
-    courseContent: [
-      {
-        chapterId: "chapter1",
-        chapterOrder: 1,
-        chapterTitle: "Getting Started with JavaScript",
-        chapterContent: [
-          {
-            lectureId: "lecture1",
-            lectureTitle: "What is JavaScript?",
-            lectureDuration: 16,
-            lectureUrl: "https://youtu.be/CBWnBi-awSA",
-            isPreviewFree: true,
-            lectureOrder: 1,
-          },
-          {
-            lectureId: "lecture2",
-            lectureTitle: "Setting Up Your Environment",
-            lectureDuration: 19,
-            lectureUrl: "https://youtu.be/2Ji-clqUYnA",
-            isPreviewFree: false,
-            lectureOrder: 2,
-          },
-        ],
-      },
-      {
-        chapterId: "chapter2",
-        chapterOrder: 2,
-        chapterTitle: "JavaScript Fundamentals",
-        chapterContent: [
-          {
-            lectureId: "lecture3",
-            lectureTitle: "Variables and Data Types",
-            lectureDuration: 22,
-            lectureUrl: "https://youtu.be/W6NZfCO5SIk",
-            isPreviewFree: false,
-            lectureOrder: 1,
-          },
-          {
-            lectureId: "lecture4",
-            lectureTitle: "Functions and Scope",
-            lectureDuration: 24,
-            lectureUrl: "https://youtu.be/N8ap4k_1QEQ",
-            isPreviewFree: false,
-            lectureOrder: 2,
-          },
-        ],
-      },
+    educator: {
+      _id: "675ac1512100b91a6d9b8b99",
+      name: "Sachin Kushwaha",
+    },
+
+    enrolledStudents: [
+      "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
+      "user_9xKpLrT82AbCqL3P0MNsX7",
     ],
+
+    courseRatings: [
+      { userId: "u1", rating: 5 },
+      { userId: "u2", rating: 5 },
+    ],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/CBWnBi-awSA/maxresdefault.jpg",
+
+    createdAt: "2024-12-17T08:16:53.622Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 4,
+
+    courseContent: [],
+  },
+
+  {
+    _id: "2",
+    courseTitle: "React for Beginners",
+    courseDescription: "Learn React from scratch.",
+    coursePrice: 59.99,
+    discount: 15,
+    isPublished: true,
+
+    educator: {
+      _id: "edu2",
+      name: "Amit Sharma",
+    },
+
+    enrolledStudents: [],
+    courseRatings: [{ rating: 4 }],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/bMknfKXIFA8/maxresdefault.jpg",
+
+    createdAt: "2024-12-18T10:00:00.000Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 0,
+
+    courseContent: [],
+  },
+
+  {
+    _id: "3",
+    courseTitle: "Full Stack MERN Bootcamp",
+    courseDescription: "Become a full stack MERN developer.",
+    coursePrice: 99.99,
+    discount: 30,
+    isPublished: true,
+
+    educator: {
+      _id: "edu3",
+      name: "Priya Verma",
+    },
+
+    enrolledStudents: [],
+    courseRatings: [{ rating: 5 }, { rating: 5 }],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/7CqJlxBYj-M/maxresdefault.jpg",
+
+    createdAt: "2024-12-19T10:00:00.000Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 0,
+
+    courseContent: [],
+  },
+
+  {
+    _id: "4",
+    courseTitle: "Node.js & Express Mastery",
+    courseDescription: "Backend development with Node.js.",
+    coursePrice: 69.99,
+    discount: 10,
+    isPublished: true,
+
+    educator: {
+      _id: "edu4",
+      name: "Rohit Singh",
+    },
+
+    enrolledStudents: [],
+    courseRatings: [{ rating: 3 }],
+
+    courseThumbnail:
+      "https://img.youtube.com/vi/Oe421EPjeBE/maxresdefault.jpg",
+
+    createdAt: "2024-12-20T10:00:00.000Z",
+    updatedAt: "2025-01-02T04:47:44.701Z",
+    __v: 0,
+
+    courseContent: [],
   },
 ];
+

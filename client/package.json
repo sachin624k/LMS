@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.60.0",
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "duration": "^0.2.2",
     "humanize": "^0.0.9",
     "quill": "^2.0.3",
