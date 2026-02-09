@@ -12,9 +12,12 @@ import profile_img_1 from './profile_img_1.png'
 import profile_img_2 from './profile_img_2.png'
 import profile_img_3 from './profile_img_3.png'
 import logo_dark from './logo_dark.png'
+import time_left_clock_icon from './time_left_clock_icon.svg'
+import time_black from './time_black.svg'
+import lesson_icon1 from './lesson_icon1.png'
 
 export const assets = {
-  Edulogo, user_icon, sketch, search_icon, microsoft_logo, walmart_logo, accenture_logo, adobe_logo, paypal_logo, star, profile_img_1, profile_img_2, profile_img_3, logo_dark
+  Edulogo, user_icon, sketch, search_icon, microsoft_logo, walmart_logo, accenture_logo, adobe_logo, paypal_logo, star, profile_img_1, profile_img_2, profile_img_3, logo_dark, time_left_clock_icon, time_black, lesson_icon1
 }
 
 export const dummyEducatorData = {
@@ -126,28 +129,26 @@ export const dummyCourses = [
     _id: "605c72efb3f1c2b1f8e4e1a1",
     courseTitle: "Introduction to JavaScript",
     courseDescription: `
-  <h2>Learn the Basics of JavaScript</h2>
+<h2>Learn the Basics of JavaScript</h2>
 
-  <p>
-    JavaScript is a powerful and widely used programming language that helps
-    create interactive and dynamic web applications. It plays a key role in
-    modern web development and enhances the overall user experience on websites
-    and web apps.
-  </p>
+<p>
+JavaScript is a powerful and widely used programming language that helps
+create interactive and dynamic web applications. It plays a key role in
+modern web development and enhances the overall user experience.
+</p>
 
-  <p>
-    This course is designed for beginners who want to build a strong foundation
-    in JavaScript and prepare themselves for advanced frameworks and libraries.
-  </p>
+<p>
+This course is designed for beginners who want to build a strong foundation
+in JavaScript and prepare themselves for advanced frameworks.
+</p>
 
-  <ul>
-    <li>Understand core JavaScript concepts and syntax</li>
-    <li>Learn variables, data types, and operators</li>
-    <li>Work with conditions, loops, and basic logic</li>
-    <li>Write clean, simple, and effective JavaScript code</li>
-  </ul>
+<ul>
+  <li>Understand core JavaScript concepts and syntax</li>
+  <li>Learn variables, data types, and operators</li>
+  <li>Work with conditions and loops</li>
+  <li>Write clean and effective JavaScript code</li>
+</ul>
 `,
-
     coursePrice: 49.99,
     discount: 20,
     isPublished: true,
@@ -167,7 +168,7 @@ export const dummyCourses = [
       {
         chapterTitle: "Control Flow",
         chapterContent: [
-          { lectureTitle: "Conditions", lectureDuration: 14 },
+          { lectureTitle: "Conditions", lectureDuration: 14, isPreviewFree: true },
           { lectureTitle: "Loops", lectureDuration: 16 },
         ],
       },
@@ -177,7 +178,26 @@ export const dummyCourses = [
   {
     _id: "2",
     courseTitle: "React for Beginners",
-    courseDescription: "Learn React from scratch.",
+    courseDescription: `
+<h2>Learn React from Scratch</h2>
+
+<p>
+React is a popular JavaScript library used to build fast, interactive, and
+scalable user interfaces for modern web applications.
+</p>
+
+<p>
+This course is ideal for beginners who want to understand how frontend
+applications are built using React.
+</p>
+
+<ul>
+  <li>Understand React fundamentals</li>
+  <li>Learn JSX and component structure</li>
+  <li>Work with props and state</li>
+  <li>Build reusable UI components</li>
+</ul>
+`,
     coursePrice: 59.99,
     discount: 15,
     isPublished: true,
@@ -189,14 +209,14 @@ export const dummyCourses = [
       {
         chapterTitle: "React Fundamentals",
         chapterContent: [
-          { lectureTitle: "What is React?", lectureDuration: 12 },
+          { lectureTitle: "What is React?", lectureDuration: 12, isPreviewFree: true },
           { lectureTitle: "JSX Explained", lectureDuration: 14 },
         ],
       },
       {
         chapterTitle: "Core Concepts",
         chapterContent: [
-          { lectureTitle: "Props", lectureDuration: 15 },
+          { lectureTitle: "Props", lectureDuration: 15, isPreviewFree: true },
           { lectureTitle: "State", lectureDuration: 18 },
         ],
       },
@@ -206,7 +226,26 @@ export const dummyCourses = [
   {
     _id: "3",
     courseTitle: "Full Stack MERN Bootcamp",
-    courseDescription: "Become a MERN stack developer.",
+    courseDescription: `
+<h2>Become a Full Stack MERN Developer</h2>
+
+<p>
+The MERN stack combines MongoDB, Express, React, and Node.js to build powerful
+full-stack web applications.
+</p>
+
+<p>
+This bootcamp takes you from frontend to backend development with real-world
+projects.
+</p>
+
+<ul>
+  <li>Build frontend apps using React</li>
+  <li>Create APIs with Node.js and Express</li>
+  <li>Work with MongoDB databases</li>
+  <li>Understand full-stack architecture</li>
+</ul>
+`,
     coursePrice: 99.99,
     discount: 30,
     isPublished: true,
@@ -218,14 +257,14 @@ export const dummyCourses = [
       {
         chapterTitle: "Frontend with React",
         chapterContent: [
-          { lectureTitle: "React Overview", lectureDuration: 20 },
+          { lectureTitle: "React Overview", lectureDuration: 20, isPreviewFree: true },
           { lectureTitle: "Hooks", lectureDuration: 25 },
         ],
       },
       {
         chapterTitle: "Backend with Node",
         chapterContent: [
-          { lectureTitle: "Node Basics", lectureDuration: 18 },
+          { lectureTitle: "Node Basics", lectureDuration: 18, isPreviewFree: true },
           { lectureTitle: "Express APIs", lectureDuration: 22 },
         ],
       },
@@ -235,7 +274,25 @@ export const dummyCourses = [
   {
     _id: "4",
     courseTitle: "Node.js & Express Mastery",
-    courseDescription: "Backend development with Node.js.",
+    courseDescription: `
+<h2>Master Backend Development with Node.js</h2>
+
+<p>
+Node.js enables JavaScript to run on the server and build scalable backend
+applications.
+</p>
+
+<p>
+This course focuses on creating robust APIs using Express.
+</p>
+
+<ul>
+  <li>Understand Node.js architecture</li>
+  <li>Work with NPM packages</li>
+  <li>Create REST APIs</li>
+  <li>Handle middleware and routing</li>
+</ul>
+`,
     coursePrice: 69.99,
     discount: 10,
     isPublished: true,
@@ -247,14 +304,14 @@ export const dummyCourses = [
       {
         chapterTitle: "Node Fundamentals",
         chapterContent: [
-          { lectureTitle: "Node Architecture", lectureDuration: 15 },
+          { lectureTitle: "Node Architecture", lectureDuration: 15, isPreviewFree: true },
           { lectureTitle: "NPM & Modules", lectureDuration: 12 },
         ],
       },
       {
         chapterTitle: "Express Framework",
         chapterContent: [
-          { lectureTitle: "Routing", lectureDuration: 18 },
+          { lectureTitle: "Routing", lectureDuration: 18, isPreviewFree: true },
           { lectureTitle: "Middleware", lectureDuration: 20 },
         ],
       },
@@ -264,7 +321,25 @@ export const dummyCourses = [
   {
     _id: "5",
     courseTitle: "HTML & CSS Fundamentals",
-    courseDescription: "Build responsive websites.",
+    courseDescription: `
+<h2>Build Responsive Websites with HTML & CSS</h2>
+
+<p>
+HTML and CSS are the foundation of web development used to create structured
+and visually appealing websites.
+</p>
+
+<p>
+This course is perfect for beginners starting web development.
+</p>
+
+<ul>
+  <li>Learn HTML structure and elements</li>
+  <li>Style websites using CSS</li>
+  <li>Create responsive layouts</li>
+  <li>Build real-world web pages</li>
+</ul>
+`,
     coursePrice: 39.99,
     discount: 25,
     isPublished: true,
@@ -276,14 +351,14 @@ export const dummyCourses = [
       {
         chapterTitle: "HTML Basics",
         chapterContent: [
-          { lectureTitle: "HTML Structure", lectureDuration: 10 },
+          { lectureTitle: "HTML Structure", lectureDuration: 10, isPreviewFree: true },
           { lectureTitle: "Forms & Inputs", lectureDuration: 14 },
         ],
       },
       {
         chapterTitle: "CSS Basics",
         chapterContent: [
-          { lectureTitle: "Flexbox", lectureDuration: 16 },
+          { lectureTitle: "Flexbox", lectureDuration: 16, isPreviewFree: true },
           { lectureTitle: "Responsive Design", lectureDuration: 18 },
         ],
       },
@@ -293,26 +368,44 @@ export const dummyCourses = [
   {
     _id: "6",
     courseTitle: "Advanced JavaScript Concepts",
-    courseDescription: "Closures, promises, async/await.",
+    courseDescription: `
+<h2>Deep Dive into Advanced JavaScript</h2>
+
+<p>
+Advanced JavaScript concepts help developers write efficient and optimized
+code.
+</p>
+
+<p>
+This course explains how JavaScript works behind the scenes.
+</p>
+
+<ul>
+  <li>Understand closures and scope</li>
+  <li>Learn hoisting and execution context</li>
+  <li>Master promises and async/await</li>
+  <li>Write optimized JavaScript</li>
+</ul>
+`,
     coursePrice: 79.99,
     discount: 20,
     isPublished: true,
     educator: { _id: "edu6", name: "Karan Mehta" },
     enrolledStudents: [],
-    courseRatings: [{ rating: 5 }, { rating: 5 }, { rating: 4 }],
+    courseRatings: [{ rating: 5 }, { rating: 5 }, { rating: 5 }],
     courseThumbnail: "https://img.youtube.com/vi/Bv_5Zv5c-Ts/maxresdefault.jpg",
     courseContent: [
       {
         chapterTitle: "Core Concepts",
         chapterContent: [
-          { lectureTitle: "Closures", lectureDuration: 20 },
+          { lectureTitle: "Closures", lectureDuration: 20, isPreviewFree: true },
           { lectureTitle: "Hoisting", lectureDuration: 15 },
         ],
       },
       {
         chapterTitle: "Async JavaScript",
         chapterContent: [
-          { lectureTitle: "Promises", lectureDuration: 18 },
+          { lectureTitle: "Promises", lectureDuration: 18, isPreviewFree: true },
           { lectureTitle: "Async/Await", lectureDuration: 22 },
         ],
       },
@@ -322,7 +415,24 @@ export const dummyCourses = [
   {
     _id: "7",
     courseTitle: "MongoDB Complete Guide",
-    courseDescription: "MongoDB from basics to aggregation.",
+    courseDescription: `
+<h2>Learn MongoDB from Basics to Advanced</h2>
+
+<p>
+MongoDB is a NoSQL database used in modern applications.
+</p>
+
+<p>
+This course teaches how to store, query, and manage data efficiently.
+</p>
+
+<ul>
+  <li>Understand documents and collections</li>
+  <li>Perform CRUD operations</li>
+  <li>Use indexes for performance</li>
+  <li>Work with aggregation pipelines</li>
+</ul>
+`,
     coursePrice: 54.99,
     discount: 15,
     isPublished: true,
@@ -334,14 +444,14 @@ export const dummyCourses = [
       {
         chapterTitle: "Mongo Basics",
         chapterContent: [
-          { lectureTitle: "Documents & Collections", lectureDuration: 14 },
+          { lectureTitle: "Documents & Collections", lectureDuration: 14, isPreviewFree: true },
           { lectureTitle: "CRUD Operations", lectureDuration: 18 },
         ],
       },
       {
         chapterTitle: "Advanced Mongo",
         chapterContent: [
-          { lectureTitle: "Indexes", lectureDuration: 16 },
+          { lectureTitle: "Indexes", lectureDuration: 16, isPreviewFree: true },
           { lectureTitle: "Aggregation", lectureDuration: 20 },
         ],
       },
@@ -351,7 +461,24 @@ export const dummyCourses = [
   {
     _id: "8",
     courseTitle: "Git & GitHub for Developers",
-    courseDescription: "Master version control.",
+    courseDescription: `
+<h2>Master Git and GitHub</h2>
+
+<p>
+Git is a version control system that helps developers track code changes.
+</p>
+
+<p>
+This course teaches collaboration using GitHub.
+</p>
+
+<ul>
+  <li>Understand Git fundamentals</li>
+  <li>Work with branches and commits</li>
+  <li>Collaborate using GitHub</li>
+  <li>Manage pull requests</li>
+</ul>
+`,
     coursePrice: 29.99,
     discount: 40,
     isPublished: true,
@@ -363,14 +490,14 @@ export const dummyCourses = [
       {
         chapterTitle: "Git Basics",
         chapterContent: [
-          { lectureTitle: "Git Init & Commit", lectureDuration: 10 },
+          { lectureTitle: "Git Init & Commit", lectureDuration: 10, isPreviewFree: true },
           { lectureTitle: "Branches", lectureDuration: 12 },
         ],
       },
       {
         chapterTitle: "GitHub",
         chapterContent: [
-          { lectureTitle: "Pull Requests", lectureDuration: 14 },
+          { lectureTitle: "Pull Requests", lectureDuration: 14, isPreviewFree: true },
           { lectureTitle: "Collaboration", lectureDuration: 16 },
         ],
       },
@@ -380,7 +507,24 @@ export const dummyCourses = [
   {
     _id: "9",
     courseTitle: "REST API Development",
-    courseDescription: "Build scalable APIs.",
+    courseDescription: `
+<h2>Build Scalable REST APIs</h2>
+
+<p>
+REST APIs allow communication between frontend and backend systems.
+</p>
+
+<p>
+This course focuses on API design and security.
+</p>
+
+<ul>
+  <li>Understand REST principles</li>
+  <li>Work with HTTP methods</li>
+  <li>Create APIs using Express</li>
+  <li>Implement authentication</li>
+</ul>
+`,
     coursePrice: 64.99,
     discount: 20,
     isPublished: true,
@@ -392,14 +536,14 @@ export const dummyCourses = [
       {
         chapterTitle: "API Basics",
         chapterContent: [
-          { lectureTitle: "REST Principles", lectureDuration: 15 },
+          { lectureTitle: "REST Principles", lectureDuration: 15, isPreviewFree: true },
           { lectureTitle: "HTTP Methods", lectureDuration: 14 },
         ],
       },
       {
         chapterTitle: "Implementation",
         chapterContent: [
-          { lectureTitle: "Express APIs", lectureDuration: 18 },
+          { lectureTitle: "Express APIs", lectureDuration: 18, isPreviewFree: true },
           { lectureTitle: "JWT Auth", lectureDuration: 20 },
         ],
       },
@@ -409,7 +553,24 @@ export const dummyCourses = [
   {
     _id: "10",
     courseTitle: "DSA with JavaScript",
-    courseDescription: "Data Structures & Algorithms.",
+    courseDescription: `
+<h2>Master Data Structures and Algorithms</h2>
+
+<p>
+DSA is essential for writing efficient code and cracking interviews.
+</p>
+
+<p>
+This course teaches DSA concepts using JavaScript.
+</p>
+
+<ul>
+  <li>Learn arrays and linked lists</li>
+  <li>Understand sorting algorithms</li>
+  <li>Improve problem-solving skills</li>
+  <li>Prepare for interviews</li>
+</ul>
+`,
     coursePrice: 89.99,
     discount: 35,
     isPublished: true,
@@ -421,14 +582,14 @@ export const dummyCourses = [
       {
         chapterTitle: "Data Structures",
         chapterContent: [
-          { lectureTitle: "Arrays", lectureDuration: 18 },
+          { lectureTitle: "Arrays", lectureDuration: 18, isPreviewFree: true },
           { lectureTitle: "Linked Lists", lectureDuration: 20 },
         ],
       },
       {
         chapterTitle: "Algorithms",
         chapterContent: [
-          { lectureTitle: "Sorting", lectureDuration: 22 },
+          { lectureTitle: "Sorting", lectureDuration: 22, isPreviewFree: true },
           { lectureTitle: "Searching", lectureDuration: 16 },
         ],
       },
@@ -438,7 +599,24 @@ export const dummyCourses = [
   {
     _id: "11",
     courseTitle: "TypeScript for React Developers",
-    courseDescription: "Type-safe React apps.",
+    courseDescription: `
+<h2>Build Type-Safe React Applications</h2>
+
+<p>
+TypeScript improves JavaScript by adding static typing.
+</p>
+
+<p>
+This course focuses on using TypeScript with React.
+</p>
+
+<ul>
+  <li>Learn TypeScript basics</li>
+  <li>Use types and interfaces</li>
+  <li>Type React props and state</li>
+  <li>Write safer React code</li>
+</ul>
+`,
     coursePrice: 74.99,
     discount: 25,
     isPublished: true,
@@ -450,14 +628,14 @@ export const dummyCourses = [
       {
         chapterTitle: "TypeScript Basics",
         chapterContent: [
-          { lectureTitle: "Types", lectureDuration: 15 },
+          { lectureTitle: "Types", lectureDuration: 15, isPreviewFree: true },
           { lectureTitle: "Interfaces", lectureDuration: 18 },
         ],
       },
       {
         chapterTitle: "React + TS",
         chapterContent: [
-          { lectureTitle: "Props Typing", lectureDuration: 16 },
+          { lectureTitle: "Props Typing", lectureDuration: 16, isPreviewFree: true },
           { lectureTitle: "Hooks Typing", lectureDuration: 20 },
         ],
       },
@@ -467,7 +645,24 @@ export const dummyCourses = [
   {
     _id: "12",
     courseTitle: "Next.js Crash Course",
-    courseDescription: "Production-ready Next.js apps.",
+    courseDescription: `
+<h2>Build Production-Ready Next.js Applications</h2>
+
+<p>
+Next.js is a React framework used for building fast and SEO-friendly apps.
+</p>
+
+<p>
+This course teaches production-ready Next.js concepts.
+</p>
+
+<ul>
+  <li>Learn routing and layouts</li>
+  <li>Understand SSR and SSG</li>
+  <li>Optimize performance</li>
+  <li>Deploy Next.js apps</li>
+</ul>
+`,
     coursePrice: 84.99,
     discount: 30,
     isPublished: true,
@@ -479,14 +674,14 @@ export const dummyCourses = [
       {
         chapterTitle: "Next.js Basics",
         chapterContent: [
-          { lectureTitle: "Pages & Routing", lectureDuration: 16 },
+          { lectureTitle: "Pages & Routing", lectureDuration: 16, isPreviewFree: true },
           { lectureTitle: "Layouts", lectureDuration: 14 },
         ],
       },
       {
         chapterTitle: "Advanced",
         chapterContent: [
-          { lectureTitle: "SSR & SSG", lectureDuration: 20 },
+          { lectureTitle: "SSR & SSG", lectureDuration: 20, isPreviewFree: true },
           { lectureTitle: "Deployment", lectureDuration: 18 },
         ],
       },
