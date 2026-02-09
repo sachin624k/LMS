@@ -160,15 +160,15 @@ in JavaScript and prepare themselves for advanced frameworks.
       {
         chapterTitle: "JavaScript Basics",
         chapterContent: [
-          { lectureTitle: "What is JavaScript?", lectureDuration: 10, isPreviewFree: true },
-          { lectureTitle: "Variables & Data Types", lectureDuration: 15 },
+          { lectureTitle: "What is JavaScript?", lectureDuration: 10, isPreviewFree: true, lectureUrl: "https://youtu.be/W6NZfCO5SIk"},
+          { lectureTitle: "Variables & Data Types", lectureDuration: 15, },
           { lectureTitle: "Operators", lectureDuration: 12 },
         ],
       },
       {
         chapterTitle: "Control Flow",
         chapterContent: [
-          { lectureTitle: "Conditions", lectureDuration: 14, isPreviewFree: true },
+          { lectureTitle: "Conditions", lectureDuration: 14, isPreviewFree: true, lectureUrl: "https://youtu.be/wT-1T7Ws5qY" },
           { lectureTitle: "Loops", lectureDuration: 16 },
         ],
       },
@@ -209,14 +209,14 @@ applications are built using React.
       {
         chapterTitle: "React Fundamentals",
         chapterContent: [
-          { lectureTitle: "What is React?", lectureDuration: 12, isPreviewFree: true },
+          { lectureTitle: "What is React?", lectureDuration: 12, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=LX4JUscM9Sk" },
           { lectureTitle: "JSX Explained", lectureDuration: 14 },
         ],
       },
       {
         chapterTitle: "Core Concepts",
         chapterContent: [
-          { lectureTitle: "Props", lectureDuration: 15, isPreviewFree: true },
+          { lectureTitle: "Props", lectureDuration: 15, isPreviewFree: true, lectureUrl:"https://www.youtube.com/watch?v=uvEAvxWvwOs" },
           { lectureTitle: "State", lectureDuration: 18 },
         ],
       },
@@ -257,14 +257,14 @@ projects.
       {
         chapterTitle: "Frontend with React",
         chapterContent: [
-          { lectureTitle: "React Overview", lectureDuration: 20, isPreviewFree: true },
+          { lectureTitle: "React Overview", lectureDuration: 20, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=s2skans2dP4&t=50s" },
           { lectureTitle: "Hooks", lectureDuration: 25 },
         ],
       },
       {
         chapterTitle: "Backend with Node",
         chapterContent: [
-          { lectureTitle: "Node Basics", lectureDuration: 18, isPreviewFree: true },
+          { lectureTitle: "Node Basics", lectureDuration: 18, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=G-bKyVpKwIQ&t=2120s" },
           { lectureTitle: "Express APIs", lectureDuration: 22 },
         ],
       },
@@ -304,14 +304,14 @@ This course focuses on creating robust APIs using Express.
       {
         chapterTitle: "Node Fundamentals",
         chapterContent: [
-          { lectureTitle: "Node Architecture", lectureDuration: 15, isPreviewFree: true },
+          { lectureTitle: "Node Architecture", lectureDuration: 15, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=y0aTs56DJWk" },
           { lectureTitle: "NPM & Modules", lectureDuration: 12 },
         ],
       },
       {
         chapterTitle: "Express Framework",
         chapterContent: [
-          { lectureTitle: "Routing", lectureDuration: 18, isPreviewFree: true },
+          { lectureTitle: "Routing", lectureDuration: 18, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=kyMoEgdMbH8" },
           { lectureTitle: "Middleware", lectureDuration: 20 },
         ],
       },
@@ -351,14 +351,14 @@ This course is perfect for beginners starting web development.
       {
         chapterTitle: "HTML Basics",
         chapterContent: [
-          { lectureTitle: "HTML Structure", lectureDuration: 10, isPreviewFree: true },
+          { lectureTitle: "HTML Structure", lectureDuration: 10, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=U4nbKMJRVaw" },
           { lectureTitle: "Forms & Inputs", lectureDuration: 14 },
         ],
       },
       {
         chapterTitle: "CSS Basics",
         chapterContent: [
-          { lectureTitle: "Flexbox", lectureDuration: 16, isPreviewFree: true },
+          { lectureTitle: "Flexbox", lectureDuration: 16, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=phWxA89Dy94" },
           { lectureTitle: "Responsive Design", lectureDuration: 18 },
         ],
       },
@@ -398,14 +398,14 @@ This course explains how JavaScript works behind the scenes.
       {
         chapterTitle: "Core Concepts",
         chapterContent: [
-          { lectureTitle: "Closures", lectureDuration: 20, isPreviewFree: true },
+          { lectureTitle: "Closures", lectureDuration: 20, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=vKJpN5FAeF4" },
           { lectureTitle: "Hoisting", lectureDuration: 15 },
         ],
       },
       {
         chapterTitle: "Async JavaScript",
         chapterContent: [
-          { lectureTitle: "Promises", lectureDuration: 18, isPreviewFree: true },
+          { lectureTitle: "Promises", lectureDuration: 18, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=NOzi4wBHn0o" },
           { lectureTitle: "Async/Await", lectureDuration: 22 },
         ],
       },
@@ -444,14 +444,14 @@ This course teaches how to store, query, and manage data efficiently.
       {
         chapterTitle: "Mongo Basics",
         chapterContent: [
-          { lectureTitle: "Documents & Collections", lectureDuration: 14, isPreviewFree: true },
+          { lectureTitle: "Documents & Collections", lectureDuration: 14, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=7o4jC2PNNfc" },
           { lectureTitle: "CRUD Operations", lectureDuration: 18 },
         ],
       },
       {
         chapterTitle: "Advanced Mongo",
         chapterContent: [
-          { lectureTitle: "Indexes", lectureDuration: 16, isPreviewFree: true },
+          { lectureTitle: "Indexes", lectureDuration: 16, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=D14wWW9EEx8" },
           { lectureTitle: "Aggregation", lectureDuration: 20 },
         ],
       },
@@ -490,14 +490,14 @@ This course teaches collaboration using GitHub.
       {
         chapterTitle: "Git Basics",
         chapterContent: [
-          { lectureTitle: "Git Init & Commit", lectureDuration: 10, isPreviewFree: true },
+          { lectureTitle: "Git Init & Commit", lectureDuration: 10, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=f5Dol8ulMRw" },
           { lectureTitle: "Branches", lectureDuration: 12 },
         ],
       },
       {
         chapterTitle: "GitHub",
         chapterContent: [
-          { lectureTitle: "Pull Requests", lectureDuration: 14, isPreviewFree: true },
+          { lectureTitle: "Pull Requests", lectureDuration: 14, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=jRLGobWwA3Y" },
           { lectureTitle: "Collaboration", lectureDuration: 16 },
         ],
       },
@@ -536,14 +536,14 @@ This course focuses on API design and security.
       {
         chapterTitle: "API Basics",
         chapterContent: [
-          { lectureTitle: "REST Principles", lectureDuration: 15, isPreviewFree: true },
+          { lectureTitle: "REST Principles", lectureDuration: 15, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=pJ83mmqcvoQ" },
           { lectureTitle: "HTTP Methods", lectureDuration: 14 },
         ],
       },
       {
         chapterTitle: "Implementation",
         chapterContent: [
-          { lectureTitle: "Express APIs", lectureDuration: 18, isPreviewFree: true },
+          { lectureTitle: "Express APIs", lectureDuration: 18, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=-MTSQjw5DrM" },
           { lectureTitle: "JWT Auth", lectureDuration: 20 },
         ],
       },
@@ -582,14 +582,14 @@ This course teaches DSA concepts using JavaScript.
       {
         chapterTitle: "Data Structures",
         chapterContent: [
-          { lectureTitle: "Arrays", lectureDuration: 18, isPreviewFree: true },
+          { lectureTitle: "Arrays", lectureDuration: 18, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=0OK-kbu9Cwo" },
           { lectureTitle: "Linked Lists", lectureDuration: 20 },
         ],
       },
       {
         chapterTitle: "Algorithms",
         chapterContent: [
-          { lectureTitle: "Sorting", lectureDuration: 22, isPreviewFree: true },
+          { lectureTitle: "Sorting", lectureDuration: 22 },
           { lectureTitle: "Searching", lectureDuration: 16 },
         ],
       },
@@ -628,14 +628,14 @@ This course focuses on using TypeScript with React.
       {
         chapterTitle: "TypeScript Basics",
         chapterContent: [
-          { lectureTitle: "Types", lectureDuration: 15, isPreviewFree: true },
+          { lectureTitle: "Types", lectureDuration: 15, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=kwcBi3S4bHU" },
           { lectureTitle: "Interfaces", lectureDuration: 18 },
         ],
       },
       {
         chapterTitle: "React + TS",
         chapterContent: [
-          { lectureTitle: "Props Typing", lectureDuration: 16, isPreviewFree: true },
+          { lectureTitle: "Props Typing", lectureDuration: 16 },
           { lectureTitle: "Hooks Typing", lectureDuration: 20 },
         ],
       },
@@ -674,14 +674,14 @@ This course teaches production-ready Next.js concepts.
       {
         chapterTitle: "Next.js Basics",
         chapterContent: [
-          { lectureTitle: "Pages & Routing", lectureDuration: 16, isPreviewFree: true },
+          { lectureTitle: "Pages & Routing", lectureDuration: 16, isPreviewFree: true, lectureUrl: "https://www.youtube.com/watch?v=KBSYutEDkgw" },
           { lectureTitle: "Layouts", lectureDuration: 14 },
         ],
       },
       {
         chapterTitle: "Advanced",
         chapterContent: [
-          { lectureTitle: "SSR & SSG", lectureDuration: 20, isPreviewFree: true },
+          { lectureTitle: "SSR & SSG", lectureDuration: 20 },
           { lectureTitle: "Deployment", lectureDuration: 18 },
         ],
       },

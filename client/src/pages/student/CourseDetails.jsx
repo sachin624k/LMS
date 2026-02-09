@@ -5,6 +5,7 @@ import Loading from '../../components/students/Loading'
 import { assets } from '../../assets/assets'
 import humanizeDuration from 'humanize-duration'
 import Footer from '../../components/students/Footer'
+import YouTube from 'react-youtube'
 
 const CourseDetails = () => {
 
@@ -13,24 +14,42 @@ const CourseDetails = () => {
   const [courseData, setCourseData] = useState(null)
   const [openSections, setOpenSections] = useState({})
   const [isAlreadyEnrolled, setIsAlreadyEnrolled] = useState(false)
+  const [playerData, setPlayerData] = useState(null)
 
-  const { allCourses, calculateRating, calculateNoOfLectures, calculateCourseDuration, calculateChapterTime, currency } = useContext(AppContext)
+  const {
+    allCourses,
+    calculateRating,
+    calculateNoOfLectures,
+    calculateCourseDuration,
+    calculateChapterTime,
+    currency
+  } = useContext(AppContext)
 
-  const fetchCourseData = async () => {
-    const findCourse = allCourses.find(course => course._id === id)
-    setCourseData(findCourse)
+  const getYouTubeVideoId = (url) => {
+    if (!url) return null
+    if (url.includes('youtu.be/')) return url.split('youtu.be/')[1].split('?')[0]
+    if (url.includes('watch?v=')) return url.split('watch?v=')[1].split('&')[0]
+    return null
   }
 
   useEffect(() => {
-    fetchCourseData()
-  }, [])
+    if (!allCourses.length) return
+
+    const findCourse = allCourses.find(
+      course => String(course._id) === String(id)
+    )
+
+    setCourseData(findCourse || null)
+    setPlayerData(null)
+    setOpenSections({})
+  }, [id, allCourses])
 
   const toggleSection = (index) => {
-    setOpenSections((prev) => ({
+    setOpenSections(prev => ({
       ...prev,
       [index]: !prev[index],
-    }));
-  };
+    }))
+  }
 
   return courseData ? (
     <>
@@ -38,35 +57,39 @@ const CourseDetails = () => {
 
         <div className='absolute top-0 left-0 w-full h-section-height -z-1 bg-gradient-to-b from-cyan-100/70 to-transparent'></div>
 
-        {/* Left column */}
+        {/* LEFT COLUMN */}
         <div className='max-w-xl z-10 text-gray-500'>
-          <h1 className='md:text-course-details-heading-large text-course-details-heading-small font-semibold text-gray-800'>{courseData.courseTitle}</h1>
-          <p className='pt-4 md:text-base text-sm'
-            dangerouslySetInnerHTML={{ __html: courseData.courseDescription.slice(0, 200) }}></p>
+          <h1 className='md:text-course-details-heading-large text-course-details-heading-small font-semibold text-gray-800'>
+            {courseData.courseTitle}
+          </h1>
 
-          {/* review and ratings */}
+          <p
+            className='pt-4 md:text-base text-sm'
+            dangerouslySetInnerHTML={{ __html: courseData.courseDescription.slice(0, 200) }}
+          ></p>
+
           <div className='flex items-center space-x-2 pt-3 pb-1 text-sm'>
             <p>{calculateRating(courseData)}</p>
             <div className="flex">
-              {[...Array(5)].map((_, index) => (
+              {[...Array(5)].map((_, index) =>
                 index < Math.floor(calculateRating(courseData)) ? (
-                  <img
-                    key={index}
-                    src={assets.star}
-                    className="w-3.5 h-3.5"
-                    alt=""
-                  />
+                  <img key={index} src={assets.star} className="w-3.5 h-3.5" />
                 ) : (
                   <span key={index} className="w-3.5 h-3.5"></span>
                 )
-              ))}
+              )}
             </div>
-            <p className='text-blue-600'>({courseData.courseRatings.length} {courseData.courseRatings.length > 1 ? 'ratings' : 'rating'})</p>
-
-            <p>{courseData.enrolledStudents.length} {courseData.enrolledStudents.length > 1 ? 'students enrolled' : 'student enrolled'}</p>
+            <p className='text-blue-600'>
+              ({courseData.courseRatings.length} {courseData.courseRatings.length > 1 ? 'ratings' : 'rating'})
+            </p>
+            <p>
+              {courseData.enrolledStudents.length} {courseData.enrolledStudents.length > 1 ? 'students enrolled' : 'student enrolled'}
+            </p>
           </div>
 
-          <p className='text-sm'>Course by <span className='text-blue-600 underline'>{courseData.educator.name}</span></p>
+          <p className='text-sm'>
+            Course by <span className='text-blue-600 underline'>{courseData.educator.name}</span>
+          </p>
 
           <div className='pt-8 text-gray-800'>
             <h2 className='text-xl font-semibold'>Course Structure</h2>
@@ -75,31 +98,38 @@ const CourseDetails = () => {
           <div className='pt-5'>
             {courseData.courseContent.map((chapter, index) => (
               <div key={index} className='border border-gray-300 bg-white mb-2 rounded'>
-                <div className='flex items-center justify-between px-4 py-3 cursor-pointer select-none' onClick={() => toggleSection(index)}>
+                <div
+                  className='flex items-center justify-between px-4 py-3 cursor-pointer'
+                  onClick={() => toggleSection(index)}
+                >
                   <div className='flex items-center gap-2'>
-                    <i
-                      className={`fa fa-angle-down transform transition-transform duration-300 ${openSections[index] ? 'rotate-180' : ''
-                        }`}
-                      aria-hidden="true"
-                    ></i>
+                    <i className={`fa fa-angle-down transition-transform ${openSections[index] ? 'rotate-180' : ''}`} />
                     <p className='font-medium md:text-base text-sm'>{chapter.chapterTitle}</p>
                   </div>
-                  <p className='text-sm md:text-default'>{chapter.chapterContent.length} Lectures - {calculateChapterTime(chapter)}</p>
+                  <p className='text-sm md:text-default'>
+                    {chapter.chapterContent.length} Lectures - {calculateChapterTime(chapter)}
+                  </p>
                 </div>
 
                 <div className={`overflow-hidden transition-all duration-300 ${openSections[index] ? 'max-h-96' : 'max-h-0'}`}>
                   <ul className='list-disc md:pl-10 pl-4 pr-4 py-2 text-gray-600 border-t border-gray-300'>
                     {chapter.chapterContent.map((lecture, i) => (
                       <li key={i} className="flex items-center gap-2 py-1">
-                        <i
-                          className="fa fa-play-circle text-gray-500 text-sm leading-none"
-                          aria-hidden="true"
-                        ></i>
+                        <i className="fa fa-play-circle text-gray-500 text-sm leading-none"></i>
                         <div className="flex items-center justify-between w-full text-gray-800 text-xs md:text-default">
                           <p className="leading-none">{lecture.lectureTitle}</p>
                           <div className="flex items-center gap-2 text-gray-500">
-                            {lecture.isPreviewFree && (
-                              <p className="text-blue-500 cursor-pointer">Preview</p>
+                            {lecture.isPreviewFree && lecture.lectureUrl && (
+                              <p
+                                className="text-blue-500 cursor-pointer"
+                                onClick={() => {
+                                  const videoId = getYouTubeVideoId(lecture.lectureUrl)
+                                  if (!videoId) return
+                                  setPlayerData({ videoId })
+                                }}
+                              >
+                                Preview
+                              </p>
                             )}
                             <p>
                               {humanizeDuration(
@@ -113,91 +143,88 @@ const CourseDetails = () => {
                     ))}
                   </ul>
                 </div>
+
               </div>
             ))}
           </div>
 
           <div className='py-20 text-sm md:text-default'>
             <h3 className='text-xl font-semibold text-gray-800'>Course Description</h3>
-            <p className='pt-3 rich-text'
-              dangerouslySetInnerHTML={{ __html: courseData.courseDescription }}></p>
+            <p
+              className='pt-3 rich-text'
+              dangerouslySetInnerHTML={{ __html: courseData.courseDescription }}
+            ></p>
           </div>
 
         </div>
 
-        {/* Right column */}
-        <div className="max-w-course-card z-10 shadow-2xl rounded-t md:rounded-none overflow-hidden bg-white min-w-[300px] sm:min-w-[424px]">
-          <img
-            src={courseData.courseThumbnail}
-            alt=""
-            className="w-full h-[220px] object-cover"
-          />
-          <div className="p-5">
-            <div className="flex items-center gap-2">
-              <img
-                className="w-3.5"
-                src={assets.time_left_clock_icon}
-                alt="time left clock icon"
-              />
+        {/* RIGHT COLUMN */}
+        <div className="z-10 shadow-2xl overflow-hidden bg-white rounded-t md:rounded-none w-full max-w-course-card sm:min-w-[424px]">
+
+          {playerData?.videoId ? (
+            <YouTube
+              key={playerData.videoId}
+              videoId={playerData.videoId}
+              opts={{ playerVars: { autoplay: 1 } }}
+              iframeClassName="w-full aspect-video"
+            />
+          ) : (
+            <img
+              src={courseData.courseThumbnail}
+              alt=""
+              className="w-full h-[180px] sm:h-[220px] object-cover"
+            />
+          )}
+
+          <div className="p-4 sm:p-5">
+            <div className="flex items-center gap-2 text-sm">
+              <img className="w-3.5" src={assets.time_left_clock_icon} />
               <p className="text-red-500">
                 <span className="font-medium">5 days</span> left at this price!
               </p>
             </div>
 
-            <div className='flex gap-3 items-center pt-2'>
-              <p className='text-gray-800 md:text-4xl text-2xl font-semibold'>{currency}{(courseData.coursePrice - courseData.discount * courseData.coursePrice / 100).toFixed(2)}</p>
-              <p className='md:text-lg text-gray-500 line-through'>{currency}{courseData.coursePrice}</p>
-              <p className='md:text-lg text-gray-500'>{courseData.discount}% off</p>
+            <div className="flex flex-wrap gap-3 items-center pt-2">
+              <p className="text-gray-800 text-2xl md:text-4xl font-semibold">
+                {currency}{(courseData.coursePrice - (courseData.discount * courseData.coursePrice) / 100).toFixed(2)}
+              </p>
+              <p className="text-sm md:text-lg text-gray-500 line-through">
+                {currency}{courseData.coursePrice}
+              </p>
+              <p className="text-sm md:text-lg text-gray-500">
+                {courseData.discount}% off
+              </p>
             </div>
 
-            <div className="flex items-center text-sm md:text-default gap-4 pt-2 md:pt-4 text-gray-500">
-              <div className="flex items-center gap-1 leading-none">
-                <img
-                  src={assets.star}
-                  alt="star icon"
-                  className="w-3.5 h-3.5"
-                />
-                <span className="leading-none">
-                  {calculateRating(courseData)}
-                </span>
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 md:pt-4 text-sm md:text-default text-gray-500">
+              <div className="flex items-center gap-1">
+                <img src={assets.star} className="w-3.5 h-3.5" />
+                <span>{calculateRating(courseData)}</span>
               </div>
-
-              <div className='w-px h-4 bg-gray-500/40'></div>
-
-              <div className="flex items-center gap-1 leading-none">
-                <img
-                  src={assets.time_black}
-                  alt="clock icon"
-                  className="w-3.5 h-3.5"
-                />
-                <span className="leading-none">
-                  {calculateCourseDuration(courseData)}
-                </span>
+              <div className="hidden sm:block w-px h-4 bg-gray-500/40"></div>
+              <div className="flex items-center gap-1">
+                <img src={assets.time_black} className="w-3.5 h-3.5" />
+                <span>{calculateCourseDuration(courseData)}</span>
               </div>
-
-              <div className='w-px h-4 bg-gray-500/40'></div>
-
-              <div className="flex items-center gap-1 leading-none">
-                <img
-                  src={assets.lesson_icon1}
-                  alt="lesson icon"
-                  className="w-3.5 h-3.5"
-                />
-                <span className="leading-none">
-                  {calculateNoOfLectures(courseData)} lessons
-                </span>
+              <div className="hidden sm:block w-px h-4 bg-gray-500/40"></div>
+              <div className="flex items-center gap-1">
+                <img src={assets.lesson_icon1} className="w-3.5 h-3.5" />
+                <span>{calculateNoOfLectures(courseData)} lessons</span>
               </div>
-
             </div>
 
-            <button className='md:mt-6 mt-4 w-full py-3 rounded bg-blue-600 text-white font-medium'>{isAlreadyEnrolled ? 'Already Enrolled' : 'Enroll Now'}</button>
+            <button className="mt-4 md:mt-6 w-full py-3 rounded bg-blue-600 text-white font-medium">
+              {isAlreadyEnrolled ? 'Already Enrolled' : 'Enroll Now'}
+            </button>
 
-            <div className='pt-6'>
-              <p className='md:text-xl text-lg font-medium text-gray-800'>What's in the course?</p>
-              <ul className='ml-4 pt-2 text-sm md:text-default list-disc text-gray-500'>
-                <li>Lifetime access with free updated.</li>
-                <li>Step-by-step, hands-on project guidence.</li>
-                <li>Downlodable resources and source code.</li>
+            <div className="pt-6">
+              <p className="text-lg md:text-xl font-medium text-gray-800">
+                What's in the course?
+              </p>
+              <ul className="ml-4 pt-2 text-sm md:text-default list-disc text-gray-500 space-y-1">
+                <li>Lifetime access with free updates.</li>
+                <li>Step-by-step, hands-on project guidance.</li>
+                <li>Downloadable resources and source code.</li>
                 <li>Quizzes to test your knowledge.</li>
                 <li>Certificate of completion.</li>
               </ul>
@@ -205,6 +232,7 @@ const CourseDetails = () => {
 
           </div>
         </div>
+
       </div>
       <Footer />
     </>
