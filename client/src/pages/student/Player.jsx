@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import humanizeDuration from 'humanize-duration'
 import YouTube from 'react-youtube'
 import Footer from '../../components/students/Footer'
+import Rating from '../../components/students/Rating'
 
 const Player = () => {
 
@@ -14,7 +15,6 @@ const Player = () => {
   const [openSections, setOpenSections] = useState({})
   const [playerData, setPlayerData] = useState(null)
 
-  // ✅ UNIVERSAL YOUTUBE ID EXTRACTOR
   const getYouTubeId = (url) => {
     if (!url) return null
 
@@ -132,6 +132,12 @@ const Player = () => {
               </div>
             ))}
           </div>
+
+          <div className='flex items-center gap-2 py-3 mt-10'>
+            <h1 className='text-xl font-bold'>Rate this Course:</h1>
+            <Rating initialRating={0}/>
+          </div>
+
         </div>
 
         {/* RIGHT COLUMN */}
