@@ -19,6 +19,7 @@ import home_icon from './home_icon.png'
 import add_icon from './add_icon.png'
 import course_icon from './course_icon.png'
 import usertick_icon from './usertick_icon.png'
+import { FaUser } from 'react-icons/fa'
 
 export const assets = {
   Edulogo, user_icon, sketch, search_icon, microsoft_logo, walmart_logo, accenture_logo, adobe_logo, paypal_logo, star, profile_img_1, profile_img_2, profile_img_3, logo_dark, time_left_clock_icon, time_black, lesson_icon1, home_icon, add_icon, course_icon, usertick_icon
@@ -70,8 +71,7 @@ export const dummyDashboardData = {
       student: {
         _id: "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
         name: "Sachin Kushwaha",
-        imageUrl:
-          "https://img.clerk.com/placeholder-user.png",
+        imageUrl: assets.profile_img_1,
       },
     },
     {
@@ -79,8 +79,7 @@ export const dummyDashboardData = {
       student: {
         _id: "user_9xKpLrT82AbCqL3P0MNsX7",
         name: "Amit Sharma",
-        imageUrl:
-          "https://img.clerk.com/placeholder-user.png",
+        imageUrl: assets.user_icon
       },
     },
     {
@@ -88,8 +87,7 @@ export const dummyDashboardData = {
       student: {
         _id: "user_7ZLpQWnP02XyA9T8KLM34",
         name: "Priya Verma",
-        imageUrl:
-          "https://img.clerk.com/placeholder-user.png",
+        imageUrl: assets.user_icon
       },
     },
   ],
