@@ -15,9 +15,13 @@ import logo_dark from './logo_dark.png'
 import time_left_clock_icon from './time_left_clock_icon.svg'
 import time_black from './time_black.svg'
 import lesson_icon1 from './lesson_icon1.png'
+import home_icon from './home_icon.png'
+import add_icon from './add_icon.png'
+import course_icon from './course_icon.png'
+import usertick_icon from './usertick_icon.png'
 
 export const assets = {
-  Edulogo, user_icon, sketch, search_icon, microsoft_logo, walmart_logo, accenture_logo, adobe_logo, paypal_logo, star, profile_img_1, profile_img_2, profile_img_3, logo_dark, time_left_clock_icon, time_black, lesson_icon1
+  Edulogo, user_icon, sketch, search_icon, microsoft_logo, walmart_logo, accenture_logo, adobe_logo, paypal_logo, star, profile_img_1, profile_img_2, profile_img_3, logo_dark, time_left_clock_icon, time_black, lesson_icon1, home_icon, add_icon, course_icon, usertick_icon
 }
 
 export const dummyEducatorData = {
