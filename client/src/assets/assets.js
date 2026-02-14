@@ -38,7 +38,7 @@ export const dummyEducatorData = {
 export const dummyTestimonialData = [
   {
     name: "Sachin Kushwaha",
-    role: "Full Stack Developer (MERN)",
+    role: "AI-Powered MERN Developer",
     image: assets.profile_img_1,
     rating: 5,
     feedback:
