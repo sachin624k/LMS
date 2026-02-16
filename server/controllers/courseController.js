@@ -31,3 +31,28 @@ export const getCourseId = async(req, res) => {
         res.json({ succes: false, message: error.message })
     }
 }
+
+// Purchase Course
+export const purcahseCourse = async(req, res) => {
+    try {
+        const { courseId } = req.body
+        const { origin } = req.headers
+        const userId = req.auth.userId
+        const userData = await User.findById(userId)
+        const courseData = await Course.findById(courseId)
+
+        if(!userData || !courseData){
+            return res.json({ success: false, message: 'Data not found' })
+        }
+
+        const purchaseData = {
+            courseId: courseData._id,
+            userId,
+            amount: (courseData.coursePrice - courseData.discount * courseData.coursePrice / 100).toFixed(2),
+        }
+
+        const newPurchase = await Purchase 
+    } catch (error) {
+        
+    }
+}
