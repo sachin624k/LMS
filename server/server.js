@@ -16,9 +16,13 @@ await connectDB()
 await connectCloudinary()
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://lms-frontend-pink-rho.vercel.app"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 }))
 
 app.post('/api/stripe', express.raw({ type: 'application/json' }), stripeWebhooks)
