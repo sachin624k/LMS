@@ -1,4 +1,4 @@
-import Edulogo from './edulogo.png'
+import Edulogo from './Edulogo.png'
 import user_icon from './user_icon.png'
 import sketch from './sketch.png'
 import search_icon from './search_icon.png'
