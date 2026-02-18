@@ -2,6 +2,7 @@ import { clerkClient } from '@clerk/clerk-sdk-node'
 import Course from '../models/Course.js'
 import { v2 as cloudinary } from 'cloudinary'
 import { Purchase } from '../models/Purchase.js'
+import User from '../models/User.js'
 
 // Update role to educator
 export const updateRoleToEducator = async (req, res) => {
@@ -53,11 +54,11 @@ export const addCourse = async (req, res) => {
 }
 
 // Get Educator Courses
-export const getEducatorCourses = async(req, res) => {
+export const getEducatorCourses = async (req, res) => {
   try {
     const educator = req.auth.userId
 
-    const courses = await Course.find({educator})
+    const courses = await Course.find({ educator })
 
     res.json({ success: true, courses })
   } catch (error) {
@@ -66,30 +67,36 @@ export const getEducatorCourses = async(req, res) => {
 }
 
 // Get Educator Dashboard Data (Total Earning, Enrolled Students, No. of Courses)
-export const educatorDashboardData = async(req, res) => {
+export const educatorDashboardData = async (req, res) => {
   try {
     const educator = req.auth.userId;
-    const courses = await Course.find({educator});
+    const courses = await Course.find({ educator });
     const totalCourses = courses.length;
 
     const courseIds = courses.map(course => course._id);
 
-    // Calculate total earning from purchases
+    // Get purchases
     const purchases = await Purchase.find({
-      courseId: {$in: courseIds},
+      courseId: { $in: courseIds },
       status: 'completed'
     });
 
-    const totalEarnings = purchases.reduce((sum, purchase) => sum.purchase.amount, 0);
+    // Calculate total earnings safely
+    const totalEarnings = purchases.reduce(
+      (sum, purchase) => sum + (Number(purchase.amount) || 0),
+      0
+    );
 
-    //Collect unique enrolled student IDs with their course title
+    // Collect enrolled students
     const enrolledStudentsData = [];
-    for(const course of courses){
-      const students = await User.find({
-        _id: {$in : course.enrolledStudents}
-      }, 'name imageUrl')
 
-      students.forEach(element => {
+    for (const course of courses) {
+      const students = await User.find(
+        { _id: { $in: course.enrolledStudents } },
+        'name imageUrl'
+      );
+
+      students.forEach(student => {
         enrolledStudentsData.push({
           courseTitle: course.courseTitle,
           student
@@ -97,24 +104,29 @@ export const educatorDashboardData = async(req, res) => {
       });
     }
 
-    res.json({ success: true, dashboardData: {
-      totalEarnings, enrolledStudentsData, totalCourses
-    }})
+    res.json({
+      success: true,
+      dashboardData: {
+        totalEarnings,
+        enrolledStudentsData,
+        totalCourses
+      }
+    });
 
   } catch (error) {
     res.json({ success: false, message: error.message });
   }
-}
+};
 
 // Get Enrolled Students Data with Purchase Data
-export const getEnrolledStudentsData = async(req, res) => {
+export const getEnrolledStudentsData = async (req, res) => {
   try {
     const educator = req.auth.userId;
-    const courses = await Course.find({educator});
+    const courses = await Course.find({ educator });
     const courseIds = courses.map(course => course._id);
 
     const purchases = await Purchase.find({
-      courseId: {$in: courseIds},
+      courseId: { $in: courseIds },
       status: 'completed'
     }).populate('userId', 'name imageUrl').populate('courseId', 'courseTitle')
 

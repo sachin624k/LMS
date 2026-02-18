@@ -12,6 +12,7 @@
   "dependencies": {
     "@clerk/clerk-react": "^5.60.0",
     "@fortawesome/fontawesome-free": "^7.2.0",
+    "axios": "^1.13.5",
     "duration": "^0.2.2",
     "humanize": "^0.0.9",
     "humanize-duration": "^3.33.2",
@@ -21,6 +22,7 @@
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.13.0",
+    "react-toastify": "^11.0.5",
     "react-youtube": "^10.1.0",
     "uniqid": "^5.4.0"
   },

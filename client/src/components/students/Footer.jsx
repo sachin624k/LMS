@@ -60,10 +60,10 @@ const Footer = () => {
             <a href="#" className='w-9 h-9 flex items-center justify-center border border-white rounded-full text-white hover:border-pink-600 hover:text-pink-600 transition duration-300'>
               <FaInstagram />
             </a>
-            <a href="#" className='w-9 h-9 flex items-center justify-center border border-white rounded-full text-white hover:border-blue-400 hover:text-blue-400 transition duration-300'>
+            <a href="https://x.com/sachin624k" className='w-9 h-9 flex items-center justify-center border border-white rounded-full text-white hover:border-blue-400 hover:text-blue-400 transition duration-300'>
               <FaTwitter />
             </a>
-            <a href="#" className='w-9 h-9 flex items-center justify-center border border-white rounded-full text-white hover:border-blue-700 hover:text-blue-700 transition duration-300'>
+            <a href="https://www.linkedin.com/in/sachin624k/" className='w-9 h-9 flex items-center justify-center border border-white rounded-full text-white hover:border-blue-700 hover:text-blue-700 transition duration-300'>
               <FaLinkedinIn />
             </a>
           </div>

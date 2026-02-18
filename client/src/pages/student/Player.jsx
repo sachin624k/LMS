@@ -5,15 +5,20 @@ import humanizeDuration from 'humanize-duration'
 import YouTube from 'react-youtube'
 import Footer from '../../components/students/Footer'
 import Rating from '../../components/students/Rating'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import Loading from '../../components/students/Loading'
 
 const Player = () => {
 
-  const { enrolledCourses, calculateChapterTime } = useContext(AppContext)
-  const { courseId } = useParams()
+  const { enrolledCourses, calculateChapterTime, backendUrl, getToken, userData, fetchUserEnrolledCourses } = useContext(AppContext)
 
+  const { courseId } = useParams()
   const [courseData, setCourseData] = useState(null)
   const [openSections, setOpenSections] = useState({})
   const [playerData, setPlayerData] = useState(null)
+  const [progressData, setProgressData] = useState(null)
+  const [initialRating, setInitialRating] = useState(0)
 
   const getYouTubeId = (url) => {
     if (!url) return null
@@ -29,6 +34,13 @@ const Player = () => {
     enrolledCourses.forEach((course) => {
       if (course._id === courseId) {
         setCourseData(course)
+        if (course.courseRatings && userData) {
+          course.courseRatings.forEach((item) => {
+            if (item.userId === userData._id) {
+              setInitialRating(item.rating)
+            }
+          })
+        }
       }
     })
   }
@@ -41,12 +53,63 @@ const Player = () => {
   }
 
   useEffect(() => {
-    if (enrolledCourses?.length) {
+    if (enrolledCourses.length > 0) {
       getCourseData()
     }
-  }, [enrolledCourses, courseId])
+  }, [enrolledCourses])
 
-  return (
+  const markLectureAsCompleted = async (lectureId) => {
+    try {
+      const token = await getToken()
+      const { data } = await axios.post(backendUrl + '/api/user/update-course-progress', { courseId, lectureId }, { headers: { Authorization: `Bearer ${token}` } })
+
+      if (data.success) {
+        toast.success(data.message)
+        getCourseProgress()
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
+  const getCourseProgress = async () => {
+    try {
+      const token = await getToken()
+      const { data } = await axios.post(backendUrl + '/api/user/get-course-progress', { courseId }, { headers: { Authorization: `Bearer ${token}` } })
+
+      if (data.success) {
+        setProgressData(data.progressData)
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
+  const handleRate = async (rating) => {
+    try {
+      const token = await getToken()
+      const { data } = await axios.post(backendUrl + '/api/user/add-rating', { courseId, rating }, { headers: { Authorization: `Bearer ${token}` } })
+
+      if (data.success) {
+        toast.success(data.message)
+        fetchUserEnrolledCourses()
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
+  useEffect(() => {
+    getCourseProgress()
+  }, [])
+
+  return courseData ? (
     <>
       <div className='p-4 sm:p-10 flex flex-col-reverse md:grid md:grid-cols-2 gap-10 md:px-36'>
 
@@ -66,9 +129,8 @@ const Player = () => {
                 >
                   <div className='flex items-center gap-2'>
                     <i
-                      className={`fa fa-angle-down transition-transform duration-300 ${
-                        openSections[index] ? 'rotate-180' : ''
-                      }`}
+                      className={`fa fa-angle-down transition-transform duration-300 ${openSections[index] ? 'rotate-180' : ''
+                        }`}
                     />
                     <p className='font-medium md:text-base text-sm'>
                       {chapter.chapterTitle}
@@ -81,9 +143,8 @@ const Player = () => {
                 </div>
 
                 <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    openSections[index] ? 'max-h-96' : 'max-h-0'
-                  }`}
+                  className={`overflow-hidden transition-all duration-300 ${openSections[index] ? 'max-h-96' : 'max-h-0'
+                    }`}
                 >
                   <ul className='md:pl-10 pl-4 pr-4 py-2 text-gray-600 border-t border-gray-300'>
                     {chapter.chapterContent.map((lecture, i) => {
@@ -91,7 +152,7 @@ const Player = () => {
 
                       return (
                         <li key={i} className='flex items-center gap-2 py-1'>
-                          {isCompleted ? (
+                          {progressData && progressData.lectureCompleted.includes(lecture.lectureId) ? (
                             <i className='fa fa-check-circle text-blue-500 text-sm'></i>
                           ) : (
                             <i className='fa fa-play-circle text-gray-500 text-sm'></i>
@@ -135,7 +196,7 @@ const Player = () => {
 
           <div className='flex items-center gap-2 py-3 mt-10'>
             <h1 className='text-xl font-bold'>Rate this Course:</h1>
-            <Rating initialRating={0}/>
+            <Rating initialRating={initialRating} onRate={handleRate} />
           </div>
 
         </div>
@@ -159,8 +220,8 @@ const Player = () => {
                   {playerData.chapter}.{playerData.lecture}{' '}
                   {playerData.lectureTitle}
                 </p>
-                <button className='text-blue-600'>
-                  {false ? 'Completed' : 'Mark Complete'}
+                <button onClick={() => markLectureAsCompleted(playerData.lectureId)} className='text-blue-600'>
+                  {progressData && progressData.lectureCompleted.includes(playerData.lectureId) ? 'Completed' : 'Mark Complete'}
                 </button>
               </div>
             </div>
@@ -176,7 +237,7 @@ const Player = () => {
       </div>
       <Footer />
     </>
-  )
+  ) : <Loading />
 }
 
 export default Player

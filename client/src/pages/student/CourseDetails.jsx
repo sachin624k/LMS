@@ -6,6 +6,8 @@ import { assets } from '../../assets/assets'
 import humanizeDuration from 'humanize-duration'
 import Footer from '../../components/students/Footer'
 import YouTube from 'react-youtube'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const CourseDetails = () => {
 
@@ -22,8 +24,13 @@ const CourseDetails = () => {
     calculateNoOfLectures,
     calculateCourseDuration,
     calculateChapterTime,
-    currency
+    currency,
+    backendUrl,
+    userData, getToken
   } = useContext(AppContext)
+
+  console.log("Backend URL:", backendUrl)
+  console.log("Course ID:", id)
 
   const getYouTubeVideoId = (url) => {
     if (!url) return null
@@ -32,17 +39,59 @@ const CourseDetails = () => {
     return null
   }
 
+  const fetchCourseData = async () => {
+    try {
+      const { data } = await axios.get(
+        backendUrl + '/api/course/' + id
+      )
+
+      if (data.success) {
+        setCourseData(data.courseData)
+      } else {
+        toast.error(data.message)
+      }
+
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
+  const enrollCourse = async () => {
+    try {
+      if (!userData) {
+        return toast.warn('Login to Enroll')
+      }
+      if (isAlreadyEnrolled) {
+        return toast.warn('Already Enrolled')
+      }
+      const token = await getToken();
+
+      const { data } = await axios.post(backendUrl + '/api/user/purchase', { courseId: courseData._id }, { headers: { Authorization: `Bearer ${token}` } })
+      if (data.success) {
+        const { session_url } = data
+        window.location.replace(session_url)
+      } else {
+        toast.error(data.message)
+      }
+
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
   useEffect(() => {
-    if (!allCourses.length) return
-
-    const findCourse = allCourses.find(
-      course => String(course._id) === String(id)
-    )
-
-    setCourseData(findCourse || null)
+    fetchCourseData()
     setPlayerData(null)
     setOpenSections({})
-  }, [id, allCourses])
+  }, [id])
+
+  useEffect(() => {
+    if (userData && courseData) {
+      setIsAlreadyEnrolled(
+        userData.enrolledCourses?.includes(courseData._id)
+      )
+    }
+  }, [userData, courseData])
 
   const toggleSection = (index) => {
     setOpenSections(prev => ({
@@ -71,24 +120,34 @@ const CourseDetails = () => {
           <div className='flex items-center space-x-2 pt-3 pb-1 text-sm'>
             <p>{calculateRating(courseData)}</p>
             <div className="flex">
-              {[...Array(5)].map((_, index) =>
-                index < Math.floor(calculateRating(courseData)) ? (
-                  <img key={index} src={assets.star} className="w-3.5 h-3.5" />
-                ) : (
-                  <span key={index} className="w-3.5 h-3.5"></span>
-                )
-              )}
+              {[...Array(5)].map((_, index) => (
+                <img
+                  key={index}
+                  src={assets.star}
+                  className={`w-3.5 h-3.5 ${index < Math.floor(calculateRating(courseData))
+                    ? ''
+                    : 'opacity-20'
+                    }`}
+                  alt="star"
+                />
+              ))}
             </div>
             <p className='text-blue-600'>
-              ({courseData.courseRatings.length} {courseData.courseRatings.length > 1 ? 'ratings' : 'rating'})
+              ({courseData.courseRating?.length || 0}{' '}
+              {courseData.courseRating?.length > 1 ? 'ratings' : 'rating'})
             </p>
             <p>
-              {courseData.enrolledStudents.length} {courseData.enrolledStudents.length > 1 ? 'students enrolled' : 'student enrolled'}
+              {courseData.enrolledStudents?.length || 0}
+              {courseData.enrolledStudents?.length > 1
+                ? ' students enrolled'
+                : ' student enrolled'}
             </p>
           </div>
 
           <p className='text-sm'>
-            Course by <span className='text-blue-600 underline'>{courseData.educator.name}</span>
+            Course by <span className='text-blue-600 underline'>
+              {courseData.educator?.name || "Unknown Instructor"}
+            </span>
           </p>
 
           <div className='pt-8 text-gray-800'>
@@ -96,7 +155,7 @@ const CourseDetails = () => {
           </div>
 
           <div className='pt-5'>
-            {courseData.courseContent.map((chapter, index) => (
+            {courseData.courseContent?.map((chapter, index) => (
               <div key={index} className='border border-gray-300 bg-white mb-2 rounded'>
                 <div
                   className='flex items-center justify-between px-4 py-3 cursor-pointer'
@@ -213,7 +272,7 @@ const CourseDetails = () => {
               </div>
             </div>
 
-            <button className="mt-4 md:mt-6 w-full py-3 rounded bg-blue-600 text-white font-medium">
+            <button onClick={enrollCourse} className="mt-4 md:mt-6 w-full py-3 rounded bg-blue-600 text-white font-medium">
               {isAlreadyEnrolled ? 'Already Enrolled' : 'Enroll Now'}
             </button>
 

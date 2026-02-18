@@ -26,9 +26,9 @@ export const getCourseId = async(req, res) => {
             })
         })
 
-        res.json({ succes: true, courseData })
+        res.json({ success: true, courseData })
     } catch (error) {
-        res.json({ succes: false, message: error.message })
+        res.json({ success: false, message: error.message })
     }
 }
 
